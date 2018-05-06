@@ -30,7 +30,10 @@ const NavBar = () => {
           <div className='navbar-item'>
             <div className='field is-grouped'>
               <p className='control'>
-                <Link className='button is-primary is-outlined' to='/contact'>
+                <Link
+                  id='contact-us-link'
+                  className='button is-primary is-outlined'
+                  to='/contact'>
                   Contact Us
                 </Link>
               </p>

@@ -1,0 +1,6 @@
+#contact-us-link {
+  color: #222;
+  @include tablet-only {
+    color: #7f888f;
+  }  
+}
