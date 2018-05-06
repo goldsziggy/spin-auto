@@ -4,9 +4,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Content, {HTMLContent} from '../components/Content'
+import Content, { HTMLContent } from '../components/Content'
 
-export const AboutPageTemplate = ({title, content, contentComponent}) => {
+export const AboutPageTemplate = ({
+  title,
+  subTitle,
+  content,
+  contentComponent,
+}) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -17,9 +22,7 @@ export const AboutPageTemplate = ({title, content, contentComponent}) => {
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
                 <div className='section'>
-                  <h1 className='title'>
-                    {title}
-                  </h1>
+                  <h1 className='title'>{title}</h1>                  
                 </div>
               </div>
             </div>
@@ -47,8 +50,8 @@ AboutPageTemplate.propTypes = {
   contentComponent: PropTypes.func,
 }
 
-const AboutPage = ({data}) => {
-  const {markdownRemark: post} = data
+const AboutPage = ({ data }) => {
+  const { markdownRemark: post } = data
 
   return (
     <div>

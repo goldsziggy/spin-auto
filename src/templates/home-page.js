@@ -13,6 +13,7 @@ export const HomePageTemplate = ({
   description,
   offerings,
   meta_title,
+  sub_title,
   meta_description,
   testimonials,
 }) => (
@@ -27,9 +28,8 @@ export const HomePageTemplate = ({
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <div className='section'>
-                <h1 className='title'>
-                  {title}
-                </h1>
+                <h1 className='title'>{title}</h1>
+                <h2 className='subtitle'>{sub_title}</h2>
               </div>
             </div>
           </div>
@@ -38,7 +38,6 @@ export const HomePageTemplate = ({
     </section>
     <section className='section section--gradient'>
       <div className='container'>
-
         <div className='section'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
@@ -50,7 +49,9 @@ export const HomePageTemplate = ({
                   <p>{description}</p>
                 </div>
                 <Offerings gridItems={offerings.blurbs} />
-                <h2 className='has-text-weight-semibold is-size-2'>Testimonials</h2>
+                <h2 className='has-text-weight-semibold is-size-2'>
+                  Testimonials
+                </h2>
                 <Testimonials testimonials={testimonials} />
               </div>
             </div>
@@ -65,20 +66,21 @@ HomePageTemplate.propTypes = {
   title: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
+  sub_title: PropTypes.string,
   heading: PropTypes.string,
   description: PropTypes.string,
   offerings: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
   testimonials: PropTypes.array,
-
 }
 
-const HomePage = ({data}) => {
-  const {frontmatter} = data.markdownRemark
-
+const HomePage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
+  console.log(frontmatter)
   return (
     <HomePageTemplate
+      sub_title={frontmatter.sub_title}
       title={frontmatter.title}
       meta_title={frontmatter.meta_title}
       meta_description={frontmatter.meta_description}
@@ -105,6 +107,7 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
+        sub_title
         meta_title
         meta_description
         heading

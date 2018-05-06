@@ -6,10 +6,10 @@ import Link from 'gatsby-link'
 
 const NavBar = () => {
   return (
-    <nav className='navbar is-fixed-top' aria-label='main navigation'>
-      <div className='navbar-brand'>
+    <nav className='navbar is-fixed-top is-link' aria-label='main navigation'>
+      <div className='navbar-brand '>
         <Link to='/' className='navbar-item'>
-                    Gatsby Starter Business
+          Spin Auto
         </Link>
         <button className='button navbar-burger' data-target='navMenu'>
           <span />
@@ -20,23 +20,18 @@ const NavBar = () => {
       <div className='navbar-menu' id='navMenu'>
         <div className='navbar-start'>
           <Link className='navbar-item' to='/pricing'>
-                        Pricing
+            Pricing
           </Link>
           <Link className='navbar-item' to='/about'>
-                        About
-          </Link>
-          <Link className='navbar-item' to='/blog'>
-                        Blog
+            About
           </Link>
         </div>
         <div className='navbar-end'>
           <div className='navbar-item'>
             <div className='field is-grouped'>
               <p className='control'>
-                <Link
-                  className='button is-primary is-outlined'
-                  to='/contact'>
-                                    Contact Us
+                <Link className='button is-primary is-outlined' to='/contact'>
+                  Contact Us
                 </Link>
               </p>
             </div>
